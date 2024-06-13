@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>News Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/darkmode.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="container mt-4 content">
+        <h1>Latest News</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Reporter</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article : ${articles}">
+                <td th:text="${article.title}">Title</td>
+                <td th:text="${article.reporter}">Reporter</td>
+                <td>
+                    <a th:href="@{/articles/{id}(id=${article.id})}" class="btn btn-info">Details</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/articles/new" class="btn btn-primary">Add New Article</a>
+    </div>
+    <footer class="footer">
+        <div th:replace="~{fragments/footer :: footer}"></div>
+    </footer>
+</div>
+</div>
+</body>
+</html>

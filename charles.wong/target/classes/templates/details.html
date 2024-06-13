@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{app.title}">Article Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/darkmode.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="container mt-4 content">
+        <h1 th:text="#{article.details}">Article Details</h1>
+        <p><strong th:text="#{form.label.title}">Title:</strong> <span th:text="${article.title}"></span></p>
+        <p><strong th:text="#{form.label.name}">Name:</strong> <span th:text="${article.name}"></span></p>
+        <p><strong th:text="#{form.label.category}">Category:</strong> <span th:text="${article.category}"></span></p>
+        <p><strong th:text="#{form.label.content}">Content:</strong> <span th:text="${article.content}"></span></p>
+        <p><strong th:text="#{form.label.reporter}">Reporter:</strong> <span th:text="${article.reporter}"></span></p>
+        <p><strong th:text="#{form.label.email}">Email:</strong> <span th:text="${article.email}"></span></p>
+        <a href="/articles" class="btn btn-secondary" th:text="#{nav.home}">Back to Articles List</a>
+    </div>
+    <footer class="footer">
+        <div th:replace="~{fragments/footer :: footer}"></div>
+    </footer>
+</div>
+</body>
+</html>

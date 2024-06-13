@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{app.title}">Articles List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/darkmode.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="container mt-4 content">
+        <h1 th:text="#{article.list}">List of Articles</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th th:text="#{article.title}">Title</th>
+                <th th:text="#{article.reporter}">Reporter</th>
+                <th th:text="#{article.actions}">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article : ${articles}">
+                <td th:text="${article.title}">Title</td>
+                <td th:text="${article.reporter}">Reporter</td>
+                <td>
+                    <a th:href="@{/articles/{id}(id=${article.id})}" class="btn btn-info" th:text="#{article.details}">Details</a>
+                    <a th:href="@{/articles/delete/{id}(id=${article.id})}" class="btn btn-danger" th:text="#{article.delete}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/articles/new" class="btn btn-primary" th:text="#{article.addNew}">Add New Article</a>
+    </div>
+    <footer class="footer">
+
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+    </footer>
+</div>
+</body>
+</html>

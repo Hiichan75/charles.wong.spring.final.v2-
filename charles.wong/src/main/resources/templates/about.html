@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{app.about}">About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/darkmode.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="container mt-4 content">
+        <h1 th:text="#{about.title}">About De Anderlechtse Gazet</h1>
+        <div class="mt-4">
+            <h2 th:text="#{about.company}">Company Information</h2>
+            <p>
+                <strong th:text="#{about.address}">Address:</strong>
+                <br>123 Fictieve Straat,
+                <br>1000 Brussel,
+                <br>België
+            </p>
+            <p>
+                <strong th:text="#{about.contact}">Contact:</strong>
+                <br><span th:text="#{about.phone}">Phone:</span> +32 2 123 4567
+                <br><span th:text="#{about.email}">Email:</span> <a href="mailto:info@anderlechtse-gazet.com">info@anderlechtse-gazet.com</a>
+            </p>
+            <p th:text="#{about.description}">Lorem ipsum dolor sit amet...</p>
+        </div>
+    </div>
+    <footer class="footer">
+
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+    </footer>
+</div>
+</body>
+</html>
